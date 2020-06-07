@@ -5,15 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Segmentify Project</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style></style>
+    <style>
+      h1 {
+        text-align: center;
+        font-weight: 100;
+        font-size: 27px;
+      }
+      #container {
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 400px;
+      }
+      #name {
+        font-weight: bold;
+        text-align: center;
+      }
+      #prices {
+        display: flex;
+        flex-direction: row;
+      }
+      #price {
+        font-weight: bold;
+      }
+      #oldPrice {
+        text-decoration: line-through;
+        font-weight: bold;
+      }
+      #basePrice {
+        font-size: 13px;
+      }
+    </style>
   </head>
   <body>
-      <header>
-          Unsere Empfehlungen für Sie
-      </header>
-      <div id="container"></div>
-      <script src="../dist/main.js"></script>
-      
+    <h1>
+      Unsere Empfehlungen für Sie
+    </h1>
+    <div id="container">
+      <img id="imageS" />
+      <p id="name"></p>
+      <div id="prices">
+        <p id="price"></p>
+        <p id="oldPrice"></p>
+      </div>
+      <p id="basePrice"></p>
+    </div>
+    <script src="../dist/main.js"></script>
   </body>
 </html>
- 
