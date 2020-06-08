@@ -5,19 +5,66 @@ var items = $.map(products, function (item) {
   div.setAttribute("class", "container");
   document.body.appendChild(div);
 
+  // var i = document.createElement("i");
+  // i.setAttribute("class", "fas fa-angle-left");
+  // document.body.appendChild(i);
+
+  // var i = document.createElement("i");
+  // i.setAttribute("class", "fas fa-angle-right");
+  // document.body.appendChild(i);
+
   var image = document.createElement("img");
+  image.setAttribute("class", "image");
   image.setAttribute("src", item.imageS);
-  document.body.appendChild(image);
+  div.appendChild(image);
+
+  var i = document.createElement("i");
+  if (item.params.likeCount) {
+    i.textContent = item.params.likeCount;
+    div.appendChild(i);
+  }
+  i.setAttribute("class", "far fa-heart");
 
   var p = document.createElement("p");
   p.textContent = item.name;
-  div.setAttribute("class", "name");
-  document.body.appendChild(p);
+  p.setAttribute("class", "name");
+  div.appendChild(p);
+
+  var p = document.createElement("p");
+  if (item.params.land) {
+    p.textContent = item.params.land;
+  } else {
+    p.textContent = " ";
+  }
+  p.setAttribute("class", "land");
+  div.appendChild(p);
+
+  var p = document.createElement("p");
+  if (item.params.region) {
+    p.textContent = item.params.region;
+  } else {
+    p.textContent = " ";
+  }
+  p.setAttribute("class", "region");
+  div.appendChild(p);
+
+  var p = document.createElement("p");
+  if (item.params.art) {
+    p.textContent = item.params.art;
+  } else {
+    p.textContent = " ";
+  }
+  p.setAttribute("class", "art");
+  div.appendChild(p);
+
+  var span = document.createElement("span");
+  span.setAttribute("class", "prices");
+  div.appendChild(span);
 
   var p = document.createElement("p");
   p.textContent = item.price + " " + "€" + "*";
-  p.setAttribute("class", "price");
-  document.body.appendChild(p);
+  p.setAttribute("class", "prices");
+  span.appendChild(p);
 
   var p = document.createElement("p");
   if (item.oldPrice) {
@@ -26,11 +73,11 @@ var items = $.map(products, function (item) {
     p.textContent = "";
   }
   p.setAttribute("class", "oldPrice");
-  document.body.appendChild(p);
+  span.appendChild(p);
 
   var p = document.createElement("p");
   p.textContent = item.params.basePrice;
   p.setAttribute("class", "basePrice");
-  document.body.appendChild(p);
+  div.appendChild(p);
 });
 document.write(items);
