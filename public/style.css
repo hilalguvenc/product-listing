@@ -5,7 +5,7 @@
 h1 {
   text-align: center;
   font-weight: 200;
-  font-size: 28px;
+  font-size: 27px;
   margin-bottom: 0;
   margin-top: 60px;
 }
@@ -113,4 +113,106 @@ h1 {
   padding: 10px;
   z-index: 0;
   width: 30px;
+}
+@media (max-width: 600px) {
+  .widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    text-align: center;
+    font-weight: 200;
+    font-size: 23px;
+    margin-bottom: 0;
+    margin-top: 40px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    text-align: center;
+    height: 400px;
+    background-color: #f5f5f5;
+    margin: 20px;
+    padding: 20px;
+    z-index: 1;
+    padding-top: 0;
+    margin-top: 10px;
+  }
+  .description-container {
+    position: relative;
+    top: 40px;
+    font-size: 13px;
+    color: #8f8ca0;
+    min-height: 80px;
+    margin-bottom: 20px;
+  }
+  .priceandOld {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .prices {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 30px 15px 0 0;
+  }
+  .oldPrices {
+    text-decoration: line-through;
+    color: #8f8ca0;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 30px 0 0 0;
+  }
+  .basePrice {
+    font-size: 15px;
+    color: #8f8ca0;
+  }
+  .price-container {
+    min-height: 50px;
+    position: relative;
+    bottom: 30px;
+  }
+  .fa-heart {
+    position: relative;
+    bottom: 80px;
+    right: 169px;
+    color: rgb(182, 21, 21);
+    background-color: white;
+    padding: 10px;
+    width: 30px;
+  }
+  /* .heart {
+    position: relative;
+    bottom: 100px;
+    right: 125px;
+    color: rgb(182, 21, 21);
+    background-color: white;
+    padding: 10px;
+    width: 30px;
+  } */
+  .discount {
+    position: relative;
+    right: 107px;
+    bottom: 200px;
+    color: white;
+    background-color: rgb(182, 21, 21);
+    padding: 10px;
+    width: 30px;
+  }
+  .nondiscount {
+    position: relative;
+    right: 107px;
+    bottom: 200px;
+    color: white;
+    background-color: #f5f5f5;
+    padding: 10px;
+    z-index: 0;
+    width: 30px;
+  }
 }
