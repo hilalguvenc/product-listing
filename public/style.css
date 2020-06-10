@@ -1,0 +1,86 @@
+.widget {
+  display: flex;
+  overflow-x: scroll;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  text-align: center;
+  height: 450px;
+  background-color: #f5f5f5;
+  margin: 20px;
+  padding: 20px;
+  z-index: 1;
+}
+.image {
+  position: relative;
+  top: 20px;
+}
+.image-container {
+  min-height: 200px;
+}
+.name {
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+}
+.name-container {
+  min-height: 54px;
+  position: relative;
+  top: 20px;
+}
+.description-container {
+  position: relative;
+  top: 40px;
+  font-size: 13px;
+  color: #8f8ca0;
+  min-height: 80px;
+  margin-bottom: 20px;
+}
+.basePrice {
+  font-size: 15px;
+  color: #8f8ca0;
+}
+.price-container {
+  min-height: 50px;
+}
+.fa-heart {
+  position: relative;
+  bottom: 80px;
+  right: 125px;
+  color: rgb(182, 21, 21);
+  background-color: white;
+  padding: 10px;
+  width: 30px;
+}
+/* .heart {
+  position: relative;
+  bottom: 100px;
+  right: 125px;
+  color: rgb(182, 21, 21);
+  background-color: white;
+  padding: 10px;
+  width: 30px;
+} */
+.discount {
+  position: relative;
+  right: 65px;
+  bottom: 200px;
+  color: white;
+  background-color: rgb(182, 21, 21);
+  padding: 10px;
+  width: 30px;
+}
+.nondiscount {
+  position: relative;
+  right: 60px;
+  bottom: 200px;
+  color: white;
+  background-color: #f5f5f5;
+  padding: 10px;
+  z-index: 0;
+  width: 30px;
+}

@@ -1,83 +1,80 @@
 import { products } from "./sample_products";
 
-var items = $.map(products, function (item) {
-  var div = document.createElement("div");
-  div.setAttribute("class", "container");
-  document.body.appendChild(div);
+const widget = document.createElement("div");
+widget.setAttribute("class", "widget");
 
-  // var i = document.createElement("i");
-  // i.setAttribute("class", "fas fa-angle-left");
-  // document.body.appendChild(i);
+$.map(products, function (item) {
+  const card = document.createElement("div");
+  card.setAttribute("class", "card");
 
-  // var i = document.createElement("i");
-  // i.setAttribute("class", "fas fa-angle-right");
-  // document.body.appendChild(i);
+  const imageContainer = document.createElement("div");
+  imageContainer.setAttribute("class", "image-container");
 
-  var image = document.createElement("img");
+  const image = document.createElement("img");
   image.setAttribute("class", "image");
   image.setAttribute("src", item.imageS);
-  div.appendChild(image);
+  imageContainer.appendChild(image);
 
-  var i = document.createElement("i");
-  if (item.params.likeCount) {
-    i.textContent = item.params.likeCount;
-    div.appendChild(i);
-  }
-  i.setAttribute("class", "far fa-heart");
+  const iTag = document.createElement("p");
+  const likeCount = item.params.likeCount;
+  // likeCount ? iTag.setAttribute("class","far fa-heart") : iTag.setAttribute("class","heart")
+  iTag.setAttribute("class", "far fa-heart");
+  iTag.textContent = item.params.likeCount ? " " + likeCount : "";
+  imageContainer.appendChild(iTag);
 
-  var p = document.createElement("p");
-  p.textContent = item.name;
-  p.setAttribute("class", "name");
-  div.appendChild(p);
+  const disCount = document.createElement("p");
+  item.oldPrice
+    ? disCount.setAttribute("class", "discount")
+    : disCount.setAttribute("class", "nondiscount");
+  disCount.textContent = item.oldPrice
+    ? "-" +
+      (((item.oldPrice - item.price) * 100) / item.oldPrice).toFixed(0) +
+      "%"
+    : "";
+  imageContainer.appendChild(disCount);
 
-  var p = document.createElement("p");
-  if (item.params.land) {
-    p.textContent = item.params.land;
-  } else {
-    p.textContent = " ";
-  }
-  p.setAttribute("class", "land");
-  div.appendChild(p);
+  const nameContainer = document.createElement("div");
+  nameContainer.setAttribute("class", "name-container");
+  const nameParagraph = document.createElement("p");
+  nameParagraph.textContent = item.name;
+  nameParagraph.setAttribute("class", "name");
+  nameContainer.appendChild(nameParagraph);
 
-  var p = document.createElement("p");
-  if (item.params.region) {
-    p.textContent = item.params.region;
-  } else {
-    p.textContent = " ";
-  }
-  p.setAttribute("class", "region");
-  div.appendChild(p);
+  const descriptionContainer = document.createElement("div");
+  descriptionContainer.setAttribute("class", "description-container");
+  const descParagraph = document.createElement("p");
+  const land = item.params.land + " | ";
+  const region = item.params.region + " | ";
+  descParagraph.textContent =
+    (item.params.land ? land : "") +
+    (item.params.region ? region : "") +
+    item.params.art;
+  descParagraph.setAttribute("class", "desc");
+  descriptionContainer.appendChild(descParagraph);
 
-  var p = document.createElement("p");
-  if (item.params.art) {
-    p.textContent = item.params.art;
-  } else {
-    p.textContent = " ";
-  }
-  p.setAttribute("class", "art");
-  div.appendChild(p);
+  const priceContainer = document.createElement("div");
+  priceContainer.setAttribute("class", "price-container");
+  const prices = document.createElement("p");
+  const oldPrice = item.oldPrice;
+  prices.textContent =
+    item.price +
+    " " +
+    "€" +
+    "*" +
+    " " +
+    (item.oldPrice ? oldPrice + " " + "€" + "*" : "");
+  priceContainer.appendChild(prices);
+  const basePrice = document.createElement("p");
+  basePrice.setAttribute("class", "basePrice");
+  basePrice.textContent = item.params.basePrice;
+  priceContainer.appendChild(basePrice);
 
-  var span = document.createElement("span");
-  span.setAttribute("class", "prices");
-  div.appendChild(span);
+  card.appendChild(imageContainer);
+  card.appendChild(nameContainer);
+  card.appendChild(descriptionContainer);
+  card.appendChild(priceContainer);
 
-  var p = document.createElement("p");
-  p.textContent = item.price + " " + "€" + "*";
-  p.setAttribute("class", "prices");
-  span.appendChild(p);
-
-  var p = document.createElement("p");
-  if (item.oldPrice) {
-    p.textContent = item.oldPrice + " " + "€" + "*";
-  } else {
-    p.textContent = "";
-  }
-  p.setAttribute("class", "oldPrice");
-  span.appendChild(p);
-
-  var p = document.createElement("p");
-  p.textContent = item.params.basePrice;
-  p.setAttribute("class", "basePrice");
-  div.appendChild(p);
+  widget.appendChild(card);
 });
-document.write(items);
+
+document.body.appendChild(widget);
