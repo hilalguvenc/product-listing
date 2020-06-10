@@ -2,6 +2,13 @@
   display: flex;
   overflow-x: scroll;
 }
+h1 {
+  text-align: center;
+  font-weight: 200;
+  font-size: 28px;
+  margin-bottom: 0;
+  margin-top: 60px;
+}
 .card {
   display: flex;
   flex-direction: column;
@@ -9,15 +16,18 @@
   align-items: center;
   min-width: 200px;
   text-align: center;
-  height: 450px;
+  height: 400px;
   background-color: #f5f5f5;
   margin: 20px;
   padding: 20px;
   z-index: 1;
+  padding-top: 0;
+  margin-top: 10px;
 }
 .image {
   position: relative;
   top: 20px;
+  left: 20px;
 }
 .image-container {
   min-height: 200px;
@@ -40,12 +50,32 @@
   min-height: 80px;
   margin-bottom: 20px;
 }
+.priceandOld {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.prices {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 30px 15px 0 0;
+}
+.oldPrices {
+  text-decoration: line-through;
+  color: #8f8ca0;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 30px 0 0 0;
+}
 .basePrice {
   font-size: 15px;
   color: #8f8ca0;
 }
 .price-container {
   min-height: 50px;
+  position: relative;
+  bottom: 30px;
 }
 .fa-heart {
   position: relative;

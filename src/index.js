@@ -3,7 +3,21 @@ import { products } from "./sample_products";
 const widget = document.createElement("div");
 widget.setAttribute("class", "widget");
 
-$.map(products, function (item) {
+const header = document.createElement("h1");
+$("h1").html("Unsere Empfehlungen für Sie");
+widget.appendChild(header);
+
+const result = [[], [], []];
+const productsParts = products.length / 3;
+
+for (let line = 0; line < 3; line++) {
+  for (let i = 0; i < productsParts; i++) {
+    const value = products[i + line * productsParts];
+    if (!value) continue;
+    result[line].push(value);
+  }
+}
+$.map(result[0], function (item) {
   const card = document.createElement("div");
   card.setAttribute("class", "card");
 
@@ -54,16 +68,20 @@ $.map(products, function (item) {
 
   const priceContainer = document.createElement("div");
   priceContainer.setAttribute("class", "price-container");
+
+  const pricesandOld = document.createElement("div");
+  pricesandOld.setAttribute("class", "priceandOld");
+  priceContainer.appendChild(pricesandOld);
+
   const prices = document.createElement("p");
-  const oldPrice = item.oldPrice;
-  prices.textContent =
-    item.price +
-    " " +
-    "€" +
-    "*" +
-    " " +
-    (item.oldPrice ? oldPrice + " " + "€" + "*" : "");
-  priceContainer.appendChild(prices);
+  prices.setAttribute("class", "prices");
+  const oldPrices = document.createElement("p");
+  oldPrices.setAttribute("class", "oldPrices");
+  prices.textContent = item.price + " " + "€" + "*" + " ";
+  oldPrices.textContent = item.oldPrice ? item.oldPrice + " " + "€" + "*" : "";
+  pricesandOld.appendChild(prices);
+  pricesandOld.appendChild(oldPrices);
+
   const basePrice = document.createElement("p");
   basePrice.setAttribute("class", "basePrice");
   basePrice.textContent = item.params.basePrice;
